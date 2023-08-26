@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7542704670657952314}
   - component: {fileID: 2883905798251329827}
+  - component: {fileID: 8321458361682649152}
   m_Layer: 0
   m_Name: vase_01
   m_TagString: vase_01
@@ -84,3 +85,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8321458361682649152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034798519327159107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20f30aa8d886588489d95588690efa38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  row: 0
+  col: 0

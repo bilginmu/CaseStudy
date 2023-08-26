@@ -31,15 +31,18 @@ public class Rectangle : MonoBehaviour
         CreateCells();
     }
 
+
     // Update is called once per frame
     void Update()
     {
         
     }
 
+
+    // Create cells depend on level data
     void CreateCells()
     {
-        // Determine position of the cells 
+        // Determine how many units cell image is used
         float heightUnit = (float)cellPixelHeight / unitPerPixel;
         float widthUnit = (float)cellPixelWidth / unitPerPixel;
 
@@ -52,21 +55,23 @@ public class Rectangle : MonoBehaviour
             {
                 // Position are determined from left to right
                 Vector2 position = new Vector2(j*widthUnit, i*heightUnit);
-                
-                // Determine cell type
+
+                // Determine which type of cell is created
                 int cellToUse = MapFromGridStringToInteger(grid[j + this.width * i]);
 
-                // Create cells according to level data
+                // Create cells 
                 GameObject cell = Instantiate(cellTypes[cellToUse], position, Quaternion.identity);
                 cell.transform.parent = this.transform;
                 cell.name = "( " + i + ", " + j + " )";
+                
+                cell.GetComponent<Cell>().row = i;
+                cell.GetComponent<Cell>().col = j;
 
                 // Store cell
                 allCells[i, j] = cell;
             }
         }
     }
-
 
 
     // Map from grid string in json to tag
@@ -85,4 +90,6 @@ public class Rectangle : MonoBehaviour
             default: return Random.Range(0,3);
         }
     }
+
+
 }
