@@ -23,13 +23,15 @@ public class Gameplay : MonoBehaviour
     }
 
 
-    // Find blasted cells and destroy them 
+    // Check matches, if there is a match, destroy matched cells
     public void DestroyCells(int row, int col)
     {
         FindMatchesAt(rectangle.allCells, row, col);
         
-        Debug.Log(cellsToBeDestroyed.Count);
+        //Debug.Log(cellsToBeDestroyed.Count);
 
+        // If clicked cell has at least 1 adjacent with the same color, destroy them
+        // otherwise clear isMatched
         if (cellsToBeDestroyed.Count > 1)
         {
 
@@ -42,7 +44,7 @@ public class Gameplay : MonoBehaviour
               
                 Destroy(cell);
                 
-                Debug.Log("Destroyed " + "( " + rowToBeDestroyed + ", " + colToBeDestroyed + " )");
+                //Debug.Log("Destroyed " + "( " + rowToBeDestroyed + ", " + colToBeDestroyed + " )");
 
                 rectangle.allCells[rowToBeDestroyed, colToBeDestroyed] = null;
             }
@@ -61,7 +63,7 @@ public class Gameplay : MonoBehaviour
     void FindMatchesAt(GameObject[,] allCells, int row, int col)
     {
 
-        Debug.Log("To be destroyed " + row + " " + col);
+        //Debug.Log("To be destroyed " + row + " " + col);
         GameObject cell = allCells[row, col];
         cell.GetComponent<Cell>().isMatched = true;
         cellsToBeDestroyed.Add(cell);
@@ -109,7 +111,6 @@ public class Gameplay : MonoBehaviour
             }
         }
     }
-
 }
 
 
