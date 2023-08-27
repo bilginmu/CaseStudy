@@ -27,7 +27,7 @@ public class Rectangle : MonoBehaviour
         this.width = level.levelInfo.grid_width;
 
         // Top row for creating new cells
-        allCells = new GameObject[this.height+1, this.width];
+        allCells = new GameObject[this.height, this.width];
 
         CreateCells();
     }
@@ -74,10 +74,10 @@ public class Rectangle : MonoBehaviour
         }
 
         // This row for creating new cells 
-        for (int i = 0; i < this.width; i++)
-        {
-            allCells[this.height, i] = null;
-        }
+        //for (int i = 0; i < this.width; i++)
+        //{
+        //    allCells[this.height, i] = null;
+        //}
     }
 
 

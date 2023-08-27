@@ -26,13 +26,16 @@ public class Gameplay : MonoBehaviour
     // Check matches, if there is a match, destroy matched cells
     public void DestroyCells(int row, int col)
     {
-        FindMatchesAt(rectangle.allCells, row, col);
         
+        FindMatchesAt(rectangle.allCells, row, col);
 
         // If clicked cell has at least 1 adjacent with the same color, destroy them
         // otherwise clear isMatched
         if (cellsToBeDestroyed.Count > 1)
         {
+            
+            CheckDestroyableObstacles();
+
 
             for (int i = 0; i < cellsToBeDestroyed.Count; i++)
             {
@@ -42,10 +45,9 @@ public class Gameplay : MonoBehaviour
                 int colToBeDestroyed = cell.GetComponent<Cell>().col;
               
                 Destroy(cell);
-                
+
                 rectangle.allCells[rowToBeDestroyed, colToBeDestroyed] = null;
             }
-
         }
         else
         {
@@ -109,6 +111,15 @@ public class Gameplay : MonoBehaviour
     }
 
 
+    // 
+    void CheckDestroyableObstacles()
+    {
+        for (int i = 0; i < cellsToBeDestroyed.Count; i++)
+        {
+            cellsToBeDestroyed[i].GetComponent<Cube>().IsAdjacentCellObstacle();
+        }
+    }
+
     // Check per frame and create cell if there is empty cell at top row
     void CreateRandomFallingCells()
     {
@@ -130,6 +141,9 @@ public class Gameplay : MonoBehaviour
                 cell.GetComponent<Cell>().row = topRow+1;
                 cell.GetComponent<Cell>().col = i;
                 cell.GetComponent<Cell>().isFalling = true;
+                
+                cell.transform.parent = rectangle.transform;
+                cell.name = "( " + topRow + ", " + i + " )";
 
                 rectangle.allCells[topRow, i] = cell;
             }

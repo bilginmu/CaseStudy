@@ -52,7 +52,6 @@ public class Cell : MonoBehaviour
             rectangle.allCells[row - 1, col].GetComponent<Cell>().name = "( " + (row-1) + ", " + col + " )";
             rectangle.allCells[row, col] = null;
             isFalling = true;
-        
         }
 
         // If cell is falling, free fall until cell is positioned at below cell
@@ -103,8 +102,6 @@ public class Cell : MonoBehaviour
         Vector2 position = new Vector2(col * widthUnit, row * heightUnit);
         return position; 
     }
-
-
     
 }
 
