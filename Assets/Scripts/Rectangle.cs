@@ -12,9 +12,9 @@ public class Rectangle : MonoBehaviour
     public GameObject[,] allCells;
     private Level level;
 
-    private int cellPixelHeight = 162;
-    private int cellPixelWidth = 142;
-    private int unitPerPixel = 100;
+    public int cellPixelHeight = 162;
+    public int cellPixelWidth = 142;
+    public int unitPerPixel = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,8 @@ public class Rectangle : MonoBehaviour
         this.height = level.levelInfo.grid_height;
         this.width = level.levelInfo.grid_width;
 
-        allCells = new GameObject[this.height, this.width];
+        // Top row for creating new cells
+        allCells = new GameObject[this.height+1, this.width];
 
         CreateCells();
     }
@@ -71,6 +72,12 @@ public class Rectangle : MonoBehaviour
                 allCells[i, j] = cell;
             }
         }
+
+        // This row for creating new cells 
+        for (int i = 0; i < this.width; i++)
+        {
+            allCells[this.height, i] = null;
+        }
     }
 
 
@@ -87,7 +94,7 @@ public class Rectangle : MonoBehaviour
             case "t": return 5;
             case "s": return 6;
             case "v": return 7;
-            default: return Random.Range(0,3);
+            default: return Random.Range(0,4);
         }
     }
 

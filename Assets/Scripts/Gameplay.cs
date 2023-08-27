@@ -19,7 +19,7 @@ public class Gameplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        CreateRandomFallingCells();
     }
 
 
@@ -28,7 +28,6 @@ public class Gameplay : MonoBehaviour
     {
         FindMatchesAt(rectangle.allCells, row, col);
         
-        //Debug.Log(cellsToBeDestroyed.Count);
 
         // If clicked cell has at least 1 adjacent with the same color, destroy them
         // otherwise clear isMatched
@@ -44,10 +43,9 @@ public class Gameplay : MonoBehaviour
               
                 Destroy(cell);
                 
-                //Debug.Log("Destroyed " + "( " + rowToBeDestroyed + ", " + colToBeDestroyed + " )");
-
                 rectangle.allCells[rowToBeDestroyed, colToBeDestroyed] = null;
             }
+
         }
         else
         {
@@ -62,8 +60,6 @@ public class Gameplay : MonoBehaviour
     // Ref: https://en.wikipedia.org/wiki/Flood_fill
     void FindMatchesAt(GameObject[,] allCells, int row, int col)
     {
-
-        //Debug.Log("To be destroyed " + row + " " + col);
         GameObject cell = allCells[row, col];
         cell.GetComponent<Cell>().isMatched = true;
         cellsToBeDestroyed.Add(cell);
@@ -110,6 +106,35 @@ public class Gameplay : MonoBehaviour
                 FindMatchesAt(allCells, row + 1, col);
             }
         }
+    }
+
+
+    // Check per frame and create cell if there is empty cell at top row
+    void CreateRandomFallingCells()
+    {
+        int topRow = rectangle.height - 1;
+        for (int i = 0; i < rectangle.width; i++)
+        {
+            if (rectangle.allCells[topRow, i] == null)
+            {
+                // Determine how many units cell image is used
+                float heightUnit = (float)rectangle.cellPixelHeight / rectangle.unitPerPixel;
+                float widthUnit = (float)rectangle.cellPixelWidth / rectangle.unitPerPixel;
+
+                // Cell will be created at the top of rectangle
+                Vector2 position = new Vector2(i* widthUnit, (topRow+1)* heightUnit);
+
+                int cellType = Random.Range(0, 4);
+                GameObject cell = Instantiate(rectangle.cellTypes[cellType], position, Quaternion.identity);
+                
+                cell.GetComponent<Cell>().row = topRow+1;
+                cell.GetComponent<Cell>().col = i;
+                cell.GetComponent<Cell>().isFalling = true;
+
+                rectangle.allCells[topRow, i] = cell;
+            }
+        }
+
     }
 }
 

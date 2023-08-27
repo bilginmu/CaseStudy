@@ -37,16 +37,7 @@ public class Cell : MonoBehaviour
     void Update()
     {
         FallDown();
-        //StartCoroutine(FallDownCo());
     }
-
-   
-    void OnMouseDown()
-    {
-        gameplay.DestroyCells(row, col);      
-    }
-
-  
 
 
     // If down cell is destroyed, this cell is falling state
@@ -74,18 +65,12 @@ public class Cell : MonoBehaviour
             // If 20 pixel remains to get desired position, go there
             if (Mathf.Abs(transform.position.y - downCellPosition[1]) < 0.2 || transform.position.y - downCellPosition[1] < 0)
             {
-                Debug.Log("Musti bug2.");
                 transform.position = downCellPosition;
                 isFalling = false;
                 row = row - 1;
             }
         }
             
-
-            
-
-
-        
     }
 
 
