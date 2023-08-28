@@ -10,6 +10,7 @@ public class Cell : MonoBehaviour
     public bool isMatched = false;
     public bool isFalling = false;
     public bool isDestroyed = false;
+
     // Free fall parameters
     private float g = 9.81f; // gravity
     private float scale = 400.0f; // gravity scale
