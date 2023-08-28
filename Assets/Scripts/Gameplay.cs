@@ -6,7 +6,7 @@ public class Gameplay : MonoBehaviour
 {
     public Rectangle rectangle;
 
-    private List<GameObject> cellsToBeDestroyed;
+    public List<GameObject> cellsToBeDestroyed;
     
     // Start is called before the first frame update
     void Start()
@@ -23,27 +23,28 @@ public class Gameplay : MonoBehaviour
     }
 
 
+
     // Check matches, if there is a match, destroy matched cells
     public void DestroyCells(int row, int col)
     {
-        
+
         FindMatchesAt(rectangle.allCells, row, col);
 
         // If clicked cell has at least 1 adjacent with the same color, destroy them
         // otherwise clear isMatched
         if (cellsToBeDestroyed.Count > 1)
         {
-            
+            // Check that adjacent cell is obstacle 
             CheckDestroyableObstacles();
 
-
+            // Destroy them
             for (int i = 0; i < cellsToBeDestroyed.Count; i++)
             {
                 GameObject cell = cellsToBeDestroyed[i];
 
                 int rowToBeDestroyed = cell.GetComponent<Cell>().row;
                 int colToBeDestroyed = cell.GetComponent<Cell>().col;
-              
+
                 Destroy(cell);
 
                 rectangle.allCells[rowToBeDestroyed, colToBeDestroyed] = null;
@@ -51,21 +52,23 @@ public class Gameplay : MonoBehaviour
         }
         else
         {
+            // If there is no match, then turn back to not matched state 
             rectangle.allCells[row, col].GetComponent<Cell>().isMatched = false;
         }
 
-        cellsToBeDestroyed.Clear(); 
+        cellsToBeDestroyed.Clear();
     }
 
 
-    // Find adjacent cells with the same color, this method is based on Flood Fill algorithm.
-    // Ref: https://en.wikipedia.org/wiki/Flood_fill
-    void FindMatchesAt(GameObject[,] allCells, int row, int col)
+
+    //Find adjacent cells with the same color, this method is based on Flood Fill algorithm.
+    //Ref: https://en.wikipedia.org/wiki/Flood_fill
+    public void FindMatchesAt(GameObject[,] allCells, int row, int col)
     {
         GameObject cell = allCells[row, col];
         cell.GetComponent<Cell>().isMatched = true;
         cellsToBeDestroyed.Add(cell);
-        
+
         // Check left cell
         if (col - 1 >= 0)
         {
@@ -76,9 +79,9 @@ public class Gameplay : MonoBehaviour
             }
 
         }
-        
+
         // Check right cell
-        if (col + 1 <  rectangle.width)
+        if (col + 1 < rectangle.width)
         {
             GameObject rightCell = allCells[row, col + 1];
             if (rightCell != null && !rightCell.GetComponent<Cell>().isMatched && rightCell.tag == cell.tag)
@@ -111,7 +114,7 @@ public class Gameplay : MonoBehaviour
     }
 
 
-    // 
+    // Check whether destroyabe obstacles is adjacent or not and give damage them
     void CheckDestroyableObstacles()
     {
         for (int i = 0; i < cellsToBeDestroyed.Count; i++)
@@ -120,7 +123,8 @@ public class Gameplay : MonoBehaviour
         }
     }
 
-    // Check per frame and create cell if there is empty cell at top row
+
+    // Check per frame and create cells if there is empty cell at top row
     void CreateRandomFallingCells()
     {
         int topRow = rectangle.height - 1;
@@ -138,7 +142,7 @@ public class Gameplay : MonoBehaviour
                 int cellType = Random.Range(0, 4);
                 GameObject cell = Instantiate(rectangle.cellTypes[cellType], position, Quaternion.identity);
                 
-                cell.GetComponent<Cell>().row = topRow+1;
+                cell.GetComponent<Cell>().row = topRow+1; // for checking empty below cell
                 cell.GetComponent<Cell>().col = i;
                 cell.GetComponent<Cell>().isFalling = true;
                 
@@ -148,7 +152,6 @@ public class Gameplay : MonoBehaviour
                 rectangle.allCells[topRow, i] = cell;
             }
         }
-
     }
 }
 

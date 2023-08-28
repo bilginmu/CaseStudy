@@ -36,7 +36,10 @@ public class Cell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FallDown();
+        if (tag != "box" && tag != "stone")
+        {
+            FallDown();
+        }
     }
 
 

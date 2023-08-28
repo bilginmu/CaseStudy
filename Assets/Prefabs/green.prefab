@@ -101,6 +101,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rectangle: {fileID: 0}
   gameplay: {fileID: 0}
+  spritesWithTntLogo:
+  - {fileID: 21300000, guid: 94e7ff2cc1520fe47ab48bb195642c91, type: 3}
+  - {fileID: 21300000, guid: a5451ad6afcd63949bed90e1268cceaf, type: 3}
+  - {fileID: 21300000, guid: bdc459f7d49b6004ebdfd9d0e2d1048b, type: 3}
+  - {fileID: 21300000, guid: ef49e0811540f254eb1e9b97f2b82760, type: 3}
+  spritesWithoutTntLogo:
+  - {fileID: 21300000, guid: de92267fa0aeeb24898c62b3143ac5a0, type: 3}
+  - {fileID: 21300000, guid: baa802df5a0b5144aa981ab655c5cbae, type: 3}
+  - {fileID: 21300000, guid: 64e580fce6e242947bf65fd41745111f, type: 3}
+  - {fileID: 21300000, guid: c93984ea6134f0648b65cdcd2897678b, type: 3}
 --- !u!114 &1012981789779799931
 MonoBehaviour:
   m_ObjectHideFlags: 0

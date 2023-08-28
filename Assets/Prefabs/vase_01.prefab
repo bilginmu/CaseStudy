@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7542704670657952314}
   - component: {fileID: 2883905798251329827}
   - component: {fileID: 8321458361682649152}
+  - component: {fileID: -3974703991023210179}
   m_Layer: 0
   m_Name: vase_01
   m_TagString: vase_01
@@ -99,3 +100,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   row: 0
   col: 0
+  isMatched: 0
+  isFalling: 0
+  rectangle: {fileID: 0}
+  gameplay: {fileID: 0}
+--- !u!114 &-3974703991023210179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034798519327159107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f9f125af4da1654abc728eee5e517e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  rectangle: {fileID: 0}
+  brokenVase: {fileID: 21300000, guid: 0ce89ce37f37d4c40a18e0f8a32ec226, type: 3}

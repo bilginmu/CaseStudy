@@ -354,3 +354,6 @@ MonoBehaviour:
   - {fileID: 868742246382987331, guid: fc1043bf059083a4a836b7f4ecd67e93, type: 3}
   - {fileID: 3977502971864622312, guid: a91954f775b8b2f4f805cdefaa51bead, type: 3}
   - {fileID: 2034798519327159107, guid: 6cefd07303b21ab43ad06375589e7b81, type: 3}
+  cellPixelHeight: 162
+  cellPixelWidth: 142
+  unitPerPixel: 100

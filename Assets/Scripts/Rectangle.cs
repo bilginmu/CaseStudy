@@ -59,7 +59,7 @@ public class Rectangle : MonoBehaviour
 
                 // Determine which type of cell is created
                 int cellToUse = MapFromGridStringToInteger(grid[j + this.width * i]);
-
+ 
                 // Create cells 
                 GameObject cell = Instantiate(cellTypes[cellToUse], position, Quaternion.identity);
                 cell.transform.parent = this.transform;
