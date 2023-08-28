@@ -12,6 +12,7 @@ public class Rectangle : MonoBehaviour
     public GameObject[,] allCells;
     private Level level;
 
+
     public int cellPixelHeight = 162;
     public int cellPixelWidth = 142;
     public int unitPerPixel = 100;
@@ -82,7 +83,7 @@ public class Rectangle : MonoBehaviour
 
 
     // Map from grid string in json to tag
-    int MapFromGridStringToInteger(string gridString)
+    public int MapFromGridStringToInteger(string gridString)
     {
         switch (gridString)
         {

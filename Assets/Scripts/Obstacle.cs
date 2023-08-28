@@ -7,6 +7,7 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     public int health;
+    public int damageId = -1;
 
     public Rectangle rectangle;
 
@@ -47,9 +48,15 @@ public class Obstacle : MonoBehaviour
     }
 
 
-    public void Damage()
+    public void Damage(int damageId)
     {
-        health--;
+        if (this.damageId != damageId)
+        {
+            health--;
+            this.damageId = damageId;
+        }
+        
+        //health--;
     }
 
 

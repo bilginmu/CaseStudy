@@ -5,14 +5,13 @@ using UnityEngine;
 public class Gameplay : MonoBehaviour
 {
     public Rectangle rectangle;
+    int damageId = 0;
 
-    public List<GameObject> cellsToBeDestroyed;
     
     // Start is called before the first frame update
     void Start()
     {
         rectangle = FindObjectOfType<Rectangle>();
-        cellsToBeDestroyed = new List<GameObject>();
     }
 
 
@@ -20,25 +19,26 @@ public class Gameplay : MonoBehaviour
     void Update()
     {
         CreateRandomFallingCells();
+        damageId++;
     }
 
 
-
     // Check matches, if there is a match, destroy matched cells
-    public void DestroyCells(int row, int col)
+    public void DestroyCells(List<GameObject> cellsToBeDestroyed, bool isCubeClicked)
     {
 
-        FindMatchesAt(rectangle.allCells, row, col);
-
-        // If clicked cell has at least 1 adjacent with the same color, destroy them
-        // otherwise clear isMatched
-        if (cellsToBeDestroyed.Count > 1)
+        // Check that adjacent cell is obstacle if user cliked a cube
+        if (isCubeClicked)
         {
-            // Check that adjacent cell is obstacle 
-            CheckDestroyableObstacles();
+            CheckDestroyableObstacles(cellsToBeDestroyed);
+        }
+  
+        
 
-            // Destroy them
-            for (int i = 0; i < cellsToBeDestroyed.Count; i++)
+        // Destroy them
+        for (int i = 0; i < cellsToBeDestroyed.Count; i++)
+        {
+            if (cellsToBeDestroyed[i] != null)
             {
                 GameObject cell = cellsToBeDestroyed[i];
 
@@ -49,73 +49,14 @@ public class Gameplay : MonoBehaviour
 
                 rectangle.allCells[rowToBeDestroyed, colToBeDestroyed] = null;
             }
-        }
-        else
-        {
-            // If there is no match, then turn back to not matched state 
-            rectangle.allCells[row, col].GetComponent<Cell>().isMatched = false;
-        }
-
-        cellsToBeDestroyed.Clear();
+            
+        }        
     }
 
-
-
-    //Find adjacent cells with the same color, this method is based on Flood Fill algorithm.
-    //Ref: https://en.wikipedia.org/wiki/Flood_fill
-    public void FindMatchesAt(GameObject[,] allCells, int row, int col)
-    {
-        GameObject cell = allCells[row, col];
-        cell.GetComponent<Cell>().isMatched = true;
-        cellsToBeDestroyed.Add(cell);
-
-        // Check left cell
-        if (col - 1 >= 0)
-        {
-            GameObject leftCell = allCells[row, col - 1];
-            if (leftCell != null && !leftCell.GetComponent<Cell>().isMatched && leftCell.tag == cell.tag)
-            {
-                FindMatchesAt(allCells, row, col - 1);
-            }
-
-        }
-
-        // Check right cell
-        if (col + 1 < rectangle.width)
-        {
-            GameObject rightCell = allCells[row, col + 1];
-            if (rightCell != null && !rightCell.GetComponent<Cell>().isMatched && rightCell.tag == cell.tag)
-            {
-                FindMatchesAt(allCells, row, col + 1);
-            }
-        }
-
-        // Check down cell
-        if (row - 1 >= 0)
-        {
-            GameObject downCell = allCells[row - 1, col];
-
-            if (downCell != null && !downCell.GetComponent<Cell>().isMatched && downCell.tag == cell.tag)
-            {
-                FindMatchesAt(allCells, row - 1, col);
-            }
-        }
-
-        // Check up cell
-        if (row + 1 < rectangle.height)
-        {
-            GameObject upCell = allCells[row + 1, col];
-
-            if (upCell != null && !upCell.GetComponent<Cell>().isMatched && upCell.tag == cell.tag)
-            {
-                FindMatchesAt(allCells, row + 1, col);
-            }
-        }
-    }
 
 
     // Check whether destroyabe obstacles is adjacent or not and give damage them
-    void CheckDestroyableObstacles()
+    void CheckDestroyableObstacles(List<GameObject> cellsToBeDestroyed)
     {
         for (int i = 0; i < cellsToBeDestroyed.Count; i++)
         {
