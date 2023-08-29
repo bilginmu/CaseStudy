@@ -102,6 +102,7 @@ MonoBehaviour:
   col: 0
   isMatched: 0
   isFalling: 0
+  isDestroyed: 0
   rectangle: {fileID: 0}
   gameplay: {fileID: 0}
 --- !u!114 &-1820470550640361009
@@ -116,3 +117,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f9f125af4da1654abc728eee5e517e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  damageId: -1
+  rectangle: {fileID: 0}
+  boxDestroyEffect:
+  - {fileID: 3462188344666216844, guid: 01778cf396bf4b74b832d30fcf953904, type: 3}
+  - {fileID: 2665700298044939389, guid: cf2ea2153c6f1cf46ab6d939186fe4da, type: 3}
+  - {fileID: 6272641664635328299, guid: 518d83b3753ff77448b4e5afb7c56d03, type: 3}
+  brokenVase: {fileID: 0}

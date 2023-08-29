@@ -14,7 +14,7 @@ public class Level : MonoBehaviour
     void Start()
     {
         // Level is 1 at the beginning
-        level = 7;
+        level = 1;
         GetJsonFileInfo();
     }
 

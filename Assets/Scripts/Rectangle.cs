@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+
+// Initial cells are created based on pattern from json files 
 public class Rectangle : MonoBehaviour
 {
     public int width;
@@ -12,10 +14,10 @@ public class Rectangle : MonoBehaviour
     public GameObject[,] allCells;
     private Level level;
 
-
-    public int cellPixelHeight = 162;
-    public int cellPixelWidth = 142;
-    public int unitPerPixel = 100;
+    // Cube image size
+    public float cellPixelHeight;
+    public float cellPixelWidth;
+    public float unitPerPixel;
 
     // Start is called before the first frame update
     void Start()
@@ -34,14 +36,8 @@ public class Rectangle : MonoBehaviour
     }
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-
-    // Create cells depend on level data
+    // Create cells depend on lwvwl data
     void CreateCells()
     {
         // Determine how many units cell image is used
@@ -69,16 +65,13 @@ public class Rectangle : MonoBehaviour
                 cell.GetComponent<Cell>().row = i;
                 cell.GetComponent<Cell>().col = j;
 
+                // Cells at upper row has greater order than bottom ones
+                cell.gameObject.GetComponent<SpriteRenderer>().sortingOrder = i;
+
                 // Store cell
                 allCells[i, j] = cell;
             }
         }
-
-        // This row for creating new cells 
-        //for (int i = 0; i < this.width; i++)
-        //{
-        //    allCells[this.height, i] = null;
-        //}
     }
 
 

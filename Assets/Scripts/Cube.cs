@@ -42,7 +42,7 @@ public class Cube : MonoBehaviour
             ClearCellsToBeDestroyed();
         }
 
-        damageId++;
+        
         
     }
 
@@ -86,12 +86,11 @@ public class Cube : MonoBehaviour
         }
         ClearCellsToBeDestroyed();
     }
-
+   
 
     // Check adjacent cell is obstacle 
-    public void IsAdjacentCellObstacle()
+    public void GiveDamageToObstacle(int damageId)
     {
-        
 
         int row = GetComponent<Cell>().row;
         int col = GetComponent<Cell>().col;

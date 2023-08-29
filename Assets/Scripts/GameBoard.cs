@@ -7,10 +7,10 @@ using UnityEngine.Windows;
 public class GameBoard : MonoBehaviour
 {
     // Start is called before the first frame update
-    
+    public GameObject score;
+
     void Start()
     {
-        
 
 
     }

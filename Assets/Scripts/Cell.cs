@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// Cell class includes falling mechanism
+// Every cell except box and stone falls down
 public class Cell : MonoBehaviour
 {
     public int row;
@@ -13,30 +16,37 @@ public class Cell : MonoBehaviour
 
     // Free fall parameters
     private float g = 9.81f; // gravity
-    private float scale = 400.0f; // gravity scale
+    private float scale = 300.0f; // gravity scale
 
     // These parameters used for calculate position from (row,col)
-    private int cellPixelHeight = 162;
-    private int cellPixelWidth = 142;
-    private int unitPerPixel = 100;
+    private float cellPixelHeight;
+    private float cellPixelWidth;
+    private float unitPerPixel;
 
     public Rectangle rectangle;
     public Gameplay gameplay;
 
 
-  
-
+ 
     // Start is called before the first frame update
     void Start()
     {
         rectangle = FindObjectOfType<Rectangle>();
         gameplay = FindObjectOfType<Gameplay>();
-        
+
+        cellPixelHeight = rectangle.cellPixelHeight;
+        cellPixelWidth = rectangle.cellPixelWidth;
+        unitPerPixel = rectangle.unitPerPixel;
+
+        gameObject.GetComponent<SpriteRenderer>().sortingOrder = row;
     }   
 
     // Update is called once per frame
     void Update()
     {
+       
+        gameObject.GetComponent<SpriteRenderer>().sortingOrder = row;
+
         if (tag != "box" && tag != "stone")
         {
             FallDown();
@@ -66,7 +76,7 @@ public class Cell : MonoBehaviour
             Vector2 downCellPosition = GetPositionFrom(row - 1, col);
 
             // If 20 pixel remains to get desired position, go there
-            if (Mathf.Abs(transform.position.y - downCellPosition[1]) < 0.2 || transform.position.y - downCellPosition[1] < 0)
+            if (Mathf.Abs(transform.position.y - downCellPosition[1]) < 0.1 || transform.position.y - downCellPosition[1] < 0)
             {
                 transform.position = downCellPosition;
                 isFalling = false;
@@ -77,6 +87,7 @@ public class Cell : MonoBehaviour
     }
 
 
+    // Free fall model
     void FreeFall()
     {
         // Same x position
