@@ -85,14 +85,22 @@ public class LevelSelection : MonoBehaviour
         // Level 10 is successfully finished
         if (PlayerPrefs.GetInt("level_10") == 1)
         {
-            //levelIndex = 10;
+            levelIndex = 11;
         }
     }
 
 
     private void UpdateLevelButtonText()
     {
-        levelButtonText.text = "Level " + levelIndex.ToString();
+        if (levelIndex == 11)
+        {
+            levelButtonText.text = "Finished";
+
+        }
+        else
+        {
+            levelButtonText.text = "Level " + levelIndex.ToString();
+        }
     }
 
 
@@ -100,6 +108,11 @@ public class LevelSelection : MonoBehaviour
     // Click level button to load new level
     public void ClickLevelButton()
     {
+        if (levelIndex == 11)
+        {
+            return;
+        }
+
         string levelStr;
         if (levelIndex != 10)
         {
@@ -110,7 +123,7 @@ public class LevelSelection : MonoBehaviour
         {
             levelStr = "level_" + levelIndex.ToString();
         }
-
+       
         SceneManager.LoadScene(levelStr);
     }
 

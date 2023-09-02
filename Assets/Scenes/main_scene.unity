@@ -188,7 +188,7 @@ RectTransform:
   m_GameObject: {fileID: 74315314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 776389124}
@@ -196,7 +196,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 278, y: 1262}
+  m_AnchoredPosition: {x: 221, y: 1313}
   m_SizeDelta: {x: 854, y: 546}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &113671780
@@ -3030,7 +3030,7 @@ RectTransform:
   m_GameObject: {fileID: 1385293920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1443378359}
@@ -3038,7 +3038,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 429, y: 1507}
+  m_AnchoredPosition: {x: 358, y: 1532}
   m_SizeDelta: {x: 854, y: 546}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1417436299
@@ -5403,7 +5403,7 @@ RectTransform:
   m_GameObject: {fileID: 1907661470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2003635674}
@@ -5411,7 +5411,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 140, y: 1382}
+  m_AnchoredPosition: {x: 208, y: 1417}
   m_SizeDelta: {x: 328, y: 239}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1917929100
@@ -6245,5 +6245,5 @@ MonoBehaviour:
   lockButton: {fileID: 2131818661}
   unlockButton: {fileID: 660444363}
   award: {fileID: 1789200802}
-  building: {fileID: 0}
+  building: {fileID: 1551943438}
   levelButtonText: {fileID: 767015311}
