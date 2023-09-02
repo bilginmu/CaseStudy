@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 201081864082098026}
   - component: {fileID: 8583479919949837805}
-  - component: {fileID: -3412502513016145476}
-  - component: {fileID: 4060422007382177111}
+  - component: {fileID: -4111802344962991662}
+  - component: {fileID: 3396129595976778499}
   m_Layer: 0
   m_Name: stone
   m_TagString: stone
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-3412502513016145476
+--- !u!114 &-4111802344962991662
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,11 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   row: 0
   col: 0
-  isMatched: 0
   isFalling: 0
-  rectangle: {fileID: 0}
-  gameplay: {fileID: 0}
---- !u!114 &4060422007382177111
+--- !u!114 &3396129595976778499
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,4 +114,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  rectangle: {fileID: 0}
+  damageId: -1
+  gameplay: {fileID: 0}
+  rectangularGrid: {fileID: 0}
+  boxDestroyEffect:
+  - {fileID: 3462188344666216844, guid: 01778cf396bf4b74b832d30fcf953904, type: 3}
+  - {fileID: 2665700298044939389, guid: cf2ea2153c6f1cf46ab6d939186fe4da, type: 3}
+  - {fileID: 6272641664635328299, guid: 518d83b3753ff77448b4e5afb7c56d03, type: 3}
+  vaseDestroyEffect:
+  - {fileID: 8253781570552663527, guid: d730a1a5edb1f94449f99736d747cbaf, type: 3}
+  - {fileID: 5090039973779744868, guid: 6e2e8bf4342203a4d98077dafa672c83, type: 3}
+  - {fileID: 7543002047609688013, guid: 87e11316efa2d204fb4d22ce88dd4ed5, type: 3}
+  brokenVase: {fileID: 21300000, guid: 0ce89ce37f37d4c40a18e0f8a32ec226, type: 3}

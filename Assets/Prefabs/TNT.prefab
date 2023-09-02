@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2557420908237428303}
   - component: {fileID: 6337860482134223434}
-  - component: {fileID: -7210023537791211533}
-  - component: {fileID: 537932653595855257}
   - component: {fileID: -6497171314602434363}
+  - component: {fileID: -570529762063216299}
+  - component: {fileID: 2061945400438195677}
   m_Layer: 0
   m_Name: TNT
   m_TagString: tnt
@@ -87,36 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-7210023537791211533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 868742246382987331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20f30aa8d886588489d95588690efa38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  row: 0
-  col: 0
-  isMatched: 0
-  isFalling: 0
-  rectangle: {fileID: 0}
-  gameplay: {fileID: 0}
---- !u!114 &537932653595855257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 868742246382987331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9bdf596c881de040af06a08134835c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &-6497171314602434363
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,3 +113,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.42, y: 1.42}
   m_EdgeRadius: 0
+--- !u!114 &-570529762063216299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868742246382987331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20f30aa8d886588489d95588690efa38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  row: 0
+  col: 0
+  isFalling: 0
+  isDestroyed: 0
+--- !u!114 &2061945400438195677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868742246382987331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9bdf596c881de040af06a08134835c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cellsToBeDestroyed: []

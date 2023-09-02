@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6983473335899161212}
   - component: {fileID: 6983473335899161203}
-  - component: {fileID: 6887064240708360816}
-  - component: {fileID: 1012981789779799931}
   - component: {fileID: -6545538479252663264}
+  - component: {fileID: 7471125182332456186}
+  - component: {fileID: -7872219521862256691}
   m_Layer: 0
   m_Name: green
   m_TagString: green
@@ -87,48 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6887064240708360816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6983473335899161202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ae015d6ad348bb40af3eecb751bb7fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rectangle: {fileID: 0}
-  gameplay: {fileID: 0}
-  spritesWithTntLogo:
-  - {fileID: 21300000, guid: 94e7ff2cc1520fe47ab48bb195642c91, type: 3}
-  - {fileID: 21300000, guid: a5451ad6afcd63949bed90e1268cceaf, type: 3}
-  - {fileID: 21300000, guid: bdc459f7d49b6004ebdfd9d0e2d1048b, type: 3}
-  - {fileID: 21300000, guid: ef49e0811540f254eb1e9b97f2b82760, type: 3}
-  spritesWithoutTntLogo:
-  - {fileID: 21300000, guid: de92267fa0aeeb24898c62b3143ac5a0, type: 3}
-  - {fileID: 21300000, guid: baa802df5a0b5144aa981ab655c5cbae, type: 3}
-  - {fileID: 21300000, guid: 64e580fce6e242947bf65fd41745111f, type: 3}
-  - {fileID: 21300000, guid: c93984ea6134f0648b65cdcd2897678b, type: 3}
---- !u!114 &1012981789779799931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6983473335899161202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20f30aa8d886588489d95588690efa38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  row: 0
-  col: 0
-  isMatched: 0
-  isFalling: 0
-  rectangle: {fileID: 0}
-  gameplay: {fileID: 0}
 --- !u!61 &-6545538479252663264
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -155,3 +113,47 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.42, y: 1.62}
   m_EdgeRadius: 0
+--- !u!114 &7471125182332456186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6983473335899161202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20f30aa8d886588489d95588690efa38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  row: 0
+  col: 0
+  isFalling: 0
+  isDestroyed: 0
+--- !u!114 &-7872219521862256691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6983473335899161202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ae015d6ad348bb40af3eecb751bb7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tnt: {fileID: 868742246382987331, guid: fc1043bf059083a4a836b7f4ecd67e93, type: 3}
+  rectangularGrid: {fileID: 0}
+  gameplay: {fileID: 0}
+  damageId: 0
+  isMatched: 0
+  spritesWithTntLogo:
+  - {fileID: 21300000, guid: 94e7ff2cc1520fe47ab48bb195642c91, type: 3}
+  - {fileID: 21300000, guid: a5451ad6afcd63949bed90e1268cceaf, type: 3}
+  - {fileID: 21300000, guid: bdc459f7d49b6004ebdfd9d0e2d1048b, type: 3}
+  - {fileID: 21300000, guid: ef49e0811540f254eb1e9b97f2b82760, type: 3}
+  spritesWithoutTntLogo:
+  - {fileID: 21300000, guid: de92267fa0aeeb24898c62b3143ac5a0, type: 3}
+  - {fileID: 21300000, guid: baa802df5a0b5144aa981ab655c5cbae, type: 3}
+  - {fileID: 21300000, guid: 64e580fce6e242947bf65fd41745111f, type: 3}
+  - {fileID: 21300000, guid: c93984ea6134f0648b65cdcd2897678b, type: 3}
+  cellsToBeDestroyed: []
